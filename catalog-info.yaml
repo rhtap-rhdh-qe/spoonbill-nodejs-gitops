@@ -1,0 +1,21 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: spoonbill-nodejs-gitops
+  description: This is GitOps manifest for spoonbill-nodejs   
+  links:
+    - url: https://www.redhat.com/en/solutions/trusted-software-supply-chain
+      title: Trusted Secure Supply Chain 
+      icon: dashboard
+      type: admin-dashboard
+  annotations:    
+    argocd/app-name: spoonbill-nodejs
+    janus-idp.io/tekton: spoonbill-nodejs 
+    backstage.io/kubernetes-id: spoonbill-nodejs 
+    backstage.io/techdocs-ref: dir:. 
+spec:
+  type: gitops
+  owner: user:guest 
+  lifecycle: experimental
+  dependsOn:
+    - component:spoonbill-nodejs
